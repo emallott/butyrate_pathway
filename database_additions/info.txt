@@ -1,0 +1,5 @@
+These are the new sequences that were identified from the gut metagenomes analyzed for this study. These sequences were added to the reference database published here:
+
+Colonic Butyrate-Producing Communities in Humans: an Overview Using Omics Data
+Marius Vital, André Karch, Dietmar H. Pieper
+mSystems Dec 2017, 2 (6) e00130-17; DOI: 10.1128/mSystems.00130-17
