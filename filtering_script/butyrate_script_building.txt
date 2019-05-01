@@ -1,0 +1,9 @@
+Script used to dereplicate, filter, remove chimeras, run framebot analysis (including original reference sequences), align corrected protein sequences to hmm (including reference sequences) to those alignments, and then perform complete linkage clustering at a 95% threshold. 
+
+This is based on John Quesen's workflow (https://john-quensen.com/workshops/workshop-2/command-line-fungene-pipeline/), with slight modifications.
+
+
+
+
+
+
