@@ -1,0 +1,30 @@
+##These are single lines of code used at various points in the analysis
+
+#Create specialized forward and reverse HMMs (for_enone.hmm and rev_enone.hmm) and starting reference file to identify starting kmers (ref_aligned.faa) for Xander alignment
+
+./Xander_assembler/bin/prepare_gene_ref.sh gene
+
+#Get median sequence lengths for reference sequences in USEARCHv11.0.667
+
+./usearch -fastx_getseqs ./All_nucl.fasta -label_substr_match -labels ./gene.txt -fastaout ./gene_ref.fasta
+
+./usearch -fastx_info ./gene_ref.fasta -output ./gene_ref_info.txt
+
+#Blast representative sequences that do not cluster with the original database and have a cluster size of >2 sequences to the original reference database using blastn (v.2.8.1)
+
+/blast2.8.1/bin/makeblastdb -in ./ref_databases/blastdb/All_nucl.fasta -dbtype nucl -out ./ref_databases/blastdb/All_nucl
+
+/blast2.8.1/bin/blastn -db ./ref_databases/blastdb/All_nucl -query ./gene/merged_alignment/rep_seqs_for_blast.fasta -max_target_seqs 1 -outfmt '6 qseqid sseqid qstart qend sstart send evalue bitscore qlen slen length pident qcovs qcovhsp' -out ./gene/merged_alignment/blast_results.txt
+
+#Dereplicate the updated gene catalog in USEARCHv11.0.667
+
+./usearch -fastx_uniques /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/Butyrate/All_nucl_new.fasta -fastaout /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/Butyrate/All_nucl_new_derep.fasta
+
+#Index the updated gene catalog in Bowtie 2 v2.2.3
+
+bowtie2-build /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/Butyrate/All_nucl_new_derep.fasta /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/Butyrate/All_nucl_new_derep
+
+
+
+
+
