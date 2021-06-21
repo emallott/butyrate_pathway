@@ -24,6 +24,40 @@
 
 bowtie2-build /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/Butyrate/All_nucl_new_derep.fasta /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/Butyrate/All_nucl_new_derep
 
+#Calculate alpha diversity from Amato et al., 2019, Genome Biology in QIIME2-2020.2
+
+conda activate qiime2-2021.2
+
+qiime tools import --input-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/all_samples_species.biom --type 'FeatureTable[Frequency]' --input-format BIOMV210Format --output-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/all_samples_species.qza
+
+qiime diversity alpha --i-table /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/all_samples_species.qza --p-metric 'shannon' --o-alpha-diversity /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_shannon.qza
+
+qiime diversity alpha --i-table /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/all_samples_species.qza --p-metric 'simpson' --o-alpha-diversity /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_simpson.qza
+
+qiime diversity alpha --i-table /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/all_samples_species.qza --p-metric 'chao1' --o-alpha-diversity /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_chao1.qza
+
+qiime tools export --input-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_shannon.qza --output-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_shannon
+
+qiime tools export --input-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_simpson.qza --output-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_simpson
+
+qiime tools export --input-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_chao1.qza --output-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_chao1
+
+qiime tools import --input-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/qs850_qs10052_qs1448_qs11212_qs10317_qs11358_nobloom_nodoubletons_min1k.biom_tax_gut_adult_reduced_even10010_reduced_nochlor_nomit_even9870_fixed.biom --type 'FeatureTable[Frequency]' --input-format BIOMV210Format --output-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/all_samples_16S.qza
+
+qiime diversity alpha --i-table /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/all_samples_16S.qza --p-metric 'shannon' --o-alpha-diversity /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_shannon_16S.qza
+
+qiime diversity alpha --i-table /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/all_samples_16S.qza --p-metric 'simpson' --o-alpha-diversity /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_simpson_16S.qza
+
+qiime diversity alpha --i-table /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/all_samples_16S.qza --p-metric 'chao1' --o-alpha-diversity /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_chao1_16S.qza
+
+qiime tools export --input-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_shannon_16S.qza --output-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_shannon_16S
+
+qiime tools export --input-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_simpson_16S.qza --output-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_simpson_16S
+
+qiime tools export --input-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_chao1_16S.qza --output-path /Users/elizabethmallott/Dropbox/Projects/Gut_microbiome/shotgun_for_katie/small_new/metaphlan/alpha_div_chao1_16S
+
+
+
 
 
 
